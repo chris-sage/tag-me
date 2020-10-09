@@ -1,24 +1,41 @@
 <footer>
-  <div class="grid">
-    <div class="unit one-third center-on-mobiles">
-      <p>Jekyll is lovingly maintained by the <a href="{{ '/team/' | relative_url }}">core team</a> of volunteers. </p>
-      <p>The contents of this website are <br />&copy;&nbsp;{{ site.time | date: '%Y' }} under the terms of the <a href="{{ site.repository }}/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
-    </div>
-    <div class="unit two-thirds align-right center-on-mobiles">
-      <p>
-        Proudly hosted by
-        <a href="https://github.com">
-          <img src="{{ 'img/footer-logo.png' | relative_url }}" width="100" height="30" alt="GitHub • Social coding">
-        </a>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      {% include social-networks-links.html %}
+      {% if page.footer-extra %}
+        <div class="footer-custom-content">
+          {% for file in page.footer-extra %}
+            {% include {{ file }} %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      <p class="copyright text-muted">
+      {% if site.author %}
+        {{ site.author }}
+        &nbsp;&bull;&nbsp;
+      {% endif %}
+      {{ site.time | date: '%Y' }}
+
+      {% if site.url-pretty %}
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="{% if site.url-canonical %}{{ site.url-canonical }}{% else %}{{ '' | absolute_url }}{% endif %}">{{ site.url-pretty }}</a>
+        </span>
+      {% endif %}
+
+      {% if site.matomo %}
+        {% if site.matomo.opt-out %}
+          &nbsp;&bull;&nbsp;
+          <a href="http://{{- site.matomo.uri -}}/index.php?module=CoreAdminHome&action=optOut" target="_blank" class="text_muted">Do-not-Track</a>
+        {% endif %}
+      {% endif%}
       </p>
-    </div>
-    <div class="unit two-thirds align-right center-on-mobiles">
-      <p>
-        Jekyll is funded thanks to its
-        <a href="https://github.com/jekyll/jekyll#sponsors">
-          sponsors!
-        </a>
-      </p>
+      {% unless site.remove-ads %}<p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>{% endunless %}
+      </div>
     </div>
   </div>
 </footer>

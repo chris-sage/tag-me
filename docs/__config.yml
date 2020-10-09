@@ -1,0 +1,60 @@
+---
+version: 4.1.1
+name: TagMe • Demo
+description: Demo GH Pages site
+url: https://chris-sage.github.io/tag-me/
+repository: https://github.com/chris-sage/tag-me
+logo: "/img/logo-2x.png"
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
+  posts:
+    permalink: "/news/:year/:month/:day/:title/"
+    output: true
+  tutorials:
+    permalink: "/:collection/:path/"
+    output: true
+defaults:
+  - scope:
+      path: _docs
+      type: docs
+    values:
+      layout: docs
+  - scope:
+      path: _posts
+      type: posts
+    values:
+      layout: news_item
+  - scope:
+      path: _tutorials
+      type: tutorials
+    values:
+      layout: tutorials
+  - scope:
+      path: ""
+    values:
+      image: "/img/jekyll-og.png"
+future: true
+plugins:
+  - jekyll-avatar
+  - jekyll-feed
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jemoji
+feed:
+  categories:
+    - release
+kramdown:
+  syntax_highlighter_opts:
+    default_lang: plaintext
+sass:
+  style: compressed
+strict_front_matter: true
+exclude:
+  - ".gitignore"
+  - ".jekyll-cache"
+  - icomoon-selection.json
+  - readme.md

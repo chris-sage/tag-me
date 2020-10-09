@@ -1,60 +1,103 @@
----
-version: 4.1.1
-name: TagMe • Demo
-description: Demo GH Pages site
+# --- Required options --- #
+# Name of website
+title: Tag-Me
+
+# Your name to show in the footer
+author: chris-sage
+
+# --- List of links in the navigation bar --- #
+
+navbar-links:
+  About Me: "aboutme"
+  Author's home: "https://github.com/chris-sage"
+
+# --- Logo --- #
+
+# Image to show in the navigation bar - works best with a square image
+# Remove this parameter if you don't want an image in the navbar
+avatar: "/assets/img/avatar-icon.png"
+
+# By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
+round-avatar: true
+
+# If you want to have an image logo in the top-left corner instead of having the title of the website,
+# then specify the following parameter
+#title-img: /path/to/image
+
+# How to display the link to your website in the footer
+# Remove this if you don't want a link in the footer
 url: https://chris-sage.github.io/tag-me/
 repository: https://github.com/chris-sage/tag-me
-logo: "/img/logo-2x.png"
-collections:
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
-  posts:
-    permalink: "/news/:year/:month/:day/:title/"
-    output: true
-  tutorials:
-    permalink: "/:collection/:path/"
-    output: true
+
+url-pretty: "https://chris-sage.github.io/tag-me/"
+
+# Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
+excerpt_length: 50
+
+# Whether or not to show an excerpt for every blog post in the feed page
+feed_show_excerpt: true
+
+# Whether or not to show a list of tags below each post preview in the feed page
+feed_show_tags: true
+
+# The keywords to associate with your website, for SEO purposes
+#keywords: "my,list,of,keywords"
+
+# --- Colours / background image --- #
+
+# Personalize the colours in your website. Colour values can be any valid CSS colour
+
+navbar-col: "#EAEAEA"
+navbar-text-col: "#404040"
+navbar-border-col: "#DDDDDD"
+page-col: "#FFFFFF"
+text-col: "#404040"
+link-col: "#008AFF"
+hover-col: "#0085A1"
+footer-col: "#EAEAEA"
+footer-text-col: "#777777"
+footer-link-col: "#404040"
+
+# --- Misc --- #
+
+# Ruby Date Format to show dates of posts
+date_format: "%B %-d, %Y"
+
+# Output options (more information on Jekyll's site)
+timezone: "Europe/London"
+markdown: kramdown
+highlighter: rouge
+permalink: /:year-:month-:day-:title/
+paginate: 5
+
+kramdown:
+  input: GFM
+
+# Default YAML values (more information on Jekyll's site)
 defaults:
   - scope:
-      path: _docs
-      type: docs
-    values:
-      layout: docs
-  - scope:
-      path: _posts
-      type: posts
-    values:
-      layout: news_item
-  - scope:
-      path: _tutorials
-      type: tutorials
-    values:
-      layout: tutorials
-  - scope:
       path: ""
+      type: "posts"
     values:
-      image: "/img/jekyll-og.png"
-future: true
-plugins:
-  - jekyll-avatar
-  - jekyll-feed
-  - jekyll-mentions
-  - jekyll-redirect-from
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jemoji
-feed:
-  categories:
-    - release
-kramdown:
-  syntax_highlighter_opts:
-    default_lang: plaintext
-sass:
-  style: compressed
-strict_front_matter: true
+      layout: "post"
+      comments: true # add comments to all blog posts
+      social-share: true # add social media sharing buttons to all blog posts
+  - scope:
+      path: "" # any file that's not a post will be a "page" layout by default
+    values:
+      layout: "page"
+
+# Exclude these files from production site
 exclude:
-  - ".gitignore"
-  - ".jekyll-cache"
-  - icomoon-selection.json
-  - readme.md
+  - CHANGELOG.md
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - screenshot.png
+  - docs/
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
