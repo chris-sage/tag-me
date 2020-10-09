@@ -9,9 +9,12 @@ Now showing all releases of {{ site.title }}
 <ul>
 {% for release in site.github.releases %}
   <li>
-    Release: {{ release.name }} {{ release.tag_name }} {{ release.prerelease }}
+    Name: {{ release.name }} 
+    Tag: {{ release.tag_name }}
+    Is this pre-release: {{ release.prerelease }}
 
-    {{ release.body }}
+    Description: {{ release.body }}
+    Link: {{ release.url }}
 
     <!-- <a href="https://github.com/{{ member.github }}">
       {{ member.name }}
@@ -20,7 +23,7 @@ Now showing all releases of {{ site.title }}
 {% endfor %}
 </ul>
 
-Now showing all repositories for {{ site.owner_name }}
+Now showing all repositories for {{ site.github.owner_name }}
 
 {% for repository in site.github.public_repositories %}
   * [{{ repository.name }}]({{ repository.html_url }})
