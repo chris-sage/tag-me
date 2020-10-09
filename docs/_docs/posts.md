@@ -214,7 +214,6 @@ Here's an example of outputting a list of blog posts with an excerpt:
   {% for post in site.posts %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
-      {{ post.excerpt }}
     </li>
   {% endfor %}
 </ul>

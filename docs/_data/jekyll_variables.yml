@@ -96,9 +96,6 @@ page:
   - name: page.title
     description: >-
       The title of the Page.
-  - name: page.excerpt
-    description: >-
-      The un-rendered excerpt of a document.
   - name: page.url
     description: >-
       The URL of the Post without the domain, but with a leading slash, e.g.
