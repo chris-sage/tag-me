@@ -8,7 +8,7 @@ author: chris-sage
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  Releases: "releases"
+  Release: "release"
   Github Home: "https://github.com/chris-sage"
 
 # --- Logo --- #
