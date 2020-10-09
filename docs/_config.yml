@@ -9,6 +9,7 @@ author: chris-sage
 
 navbar-links:
   Release: "release"
+  Repositories: "repositories"
   Github Home: "https://github.com/chris-sage"
 
 # --- Logo --- #
