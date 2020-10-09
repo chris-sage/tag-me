@@ -14,7 +14,7 @@ Now showing all releases of {{ site.title }}
     Is this pre-release: {{ release.prerelease }}
 
     Description: {{ release.body }}
-    Link: {{ release.url }}
+    Link: <a href="{{ release.html_url }}" /a>
 
     <!-- <a href="https://github.com/{{ member.github }}">
       {{ member.name }}
